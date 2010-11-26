@@ -7,6 +7,7 @@
     %script{:src => './js/jquery.js'}
     %script{:src => './js/jquery-cycle.js'} 
     %script{:src => './js/script.js'}
+    %script{:src => './js/analytics.js'}
   %body
     %header
       %hgroup
@@ -20,18 +21,19 @@
         %span.phone-number
           347 824 2066
         %span.pitch
-          = lorem('words', 10)
+          Lets Debug.
     #body-copy
       %nav
         %a{:href => '/'} home
         %ul.pages
           - (nav).each do |page, sections|
             %li.page
-              %a{:href => page.split.map { |x| x.downcase }.join('-')} #{page}
+              //make helper for this and name it properly.
+              %a{ :href => downcase_spacedash(page) } #{page}
               %ul.sections
                 - sections.each do |section|
                   %li.section
-                    %a{:href => "#{page.downcase}\##{section}"} #{section.to_s.split('-').map { |x| x.capitalize }.join(' ')}
+                    %a{:href => "#{downcase_spacedash(page)}\##{section}"} #{section.split('-').map { |x| x.capitalize }.join(' ')}
       %section.content
         %header
           // visual

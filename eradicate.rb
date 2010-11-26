@@ -18,20 +18,28 @@ helpers do
   def nav
     {
       "Home" => [],
-      "About us" => [],
-      "Services" => [:ants, :cockroach, :flies, :honeybee, :mice,
-                     :mosquito, :"non-toxic-treatment", :"other-pest-control",
-                     :rats, :spiders, :squirrels, :termites ],
-      "Bed Bugs" => [],
-      "Bed Bug Dog" => [],
+      "About Us" => [],
+      "All Services" => [ "ants", "cockroach", "flies", "honeybee", "mice",
+                         "mosquito", "non-toxic-treatment", "other-pest-control",
+                         "rats", "spiders", "squirrels", "termites" ],
+      "Bed Bugs" => ["bed-bugs-pictures", "bed-bugs-rash", "bed-bugs-treatment",
+                     "bed-mites", "chiggers", "fleas", "getting-rid-of-bed-bugs", "kill-bed-bugs"],
+      "Bed Bug Dog" => ["bugs-dog", 
+                         "bed-bug-cat", "chigger-dog", "flea-dog", "lice-dog",
+                        "mites-dog", "scabies-dog", "tick-dog"],
       "Cryonite" => [],
-      "Prep Info" => [],
+      "Heat Treatment" => [],
       "Recent Work" => [],
-      "Contact us" => []
+      "Prep Info" => [],
+      "Contact Us" => [],
+      "Blog" => []
     }
   end
   def lorem(type, n)
     Lorem::Base.new(type, n).output
+  end
+  def downcase_spacedash(str)
+    str.split.map { |x| x.downcase }.join('-')
   end
 end
 

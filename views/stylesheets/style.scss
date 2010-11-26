@@ -22,7 +22,8 @@ nav ul.pages {
   ul.sections {
     position: absolute;
     top: 0; left: 100%;
-    display: none; }
+    display: none;
+    width: 170px; }
 
   a {
     background: darken($pastel, 10%);
@@ -108,7 +109,7 @@ body > header {
       padding: 3px 5px;
       &:hover { background: $pastel; }}}
   section.content {
-    width: 80%;
+    width: 70%;
     margin: 20px auto;
     background: $pastel;
     padding: 20px;
@@ -122,6 +123,25 @@ body > header {
     img { 
       width: 200px; height: 200px;
       border: 3px solid $orange; }
+    img.independent {
+      display: block;
+      margin: auto; }
+    figure {
+      background: darken($pastel, 10%); 
+      display: table;
+      padding: 10px;
+      margin: 10px auto;
+      @include border-radius(10px); 
+      figcaption {
+        background: $lg;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: 5px;
+        padding: 5px; }
+      img {
+        display: block;
+        margin: auto; }}
     ul {
       background: darken($pastel, 10%);
       max-width: 635px;
@@ -158,3 +178,9 @@ footer {
   font-weight: bold;
   text-align: center;
   color: white; }
+
+//arindams poem
+p.poem {
+  i { 
+    display: block;
+    font-weight: bold; }}
