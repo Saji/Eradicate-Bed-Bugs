@@ -12,46 +12,157 @@ $holding-you: #F0F2EB;
 
 body > header > ul.images { display: none; }
 
-body > header {
+//=:general
+body {  }
+ul { list-style: none; }
+ol { margin-left: 20px; }
+p { margin: 10px 0; }
+h1 {
+  font-weight: bold;
+  font-size: 1.5em;
+  border-bottom: 4px solid $musimusi;
+  margin: 20px 0; }
+h2 {
+  font-weight: bold;
+  font-size: 1.2em;
+  border-bottom: 2px solid $wasabi;
+  margin: 10px 0; }
+strong > q {
+  color: $musimusi;
+  font-style: italic;
+  font-weight: bold;
+  display: block;
+  padding: 20px 20px 20px 40px ;
+  margin: 20px 0;
+  background: url(images/quote.png) no-repeat; }
+img { width: 200px; height: 200px; }
+figure {
   background: $polished-pebbles;
-  width: 300px;
-  margin: 40px 0 20px auto; }
+  padding: 10px;
+  text-align: center;
+  figcaption {
+    background: $dead-palette;
+    padding: 5px;
+    margin-bottom: 10px; }
+  img {border: 4px solid $dead-palette; }}
+img.independent {
+  display: block;
+  border: 4px solid $polished-pebbles;
+  margin: 10px auto; }
+//=:general-end
+
+
+//=:paddings
+#body-copy, body > header {
+  padding: 20px; }
+
+//=:heading
+body > header {
+  position: relative;
+  width: 400px;
+  margin: 40px 40px 60px auto;
+  span.pitch { color: $polished-pebbles; }
+  h1 { //undoing general styles
+    border: none;
+    margin: 0; }
+  h1 { 
+    font-size: 2em;
+    background: url(images/logo.png) no-repeat;
+    padding: 10px 0 10px 50px; }
+  span.phone-number {
+    font-weight: bold;
+    font-size: 1.25em;
+    padding: 17px 0 0 50px; 
+    background: url(images/phone.png) no-repeat; }
+  span.pitch {
+    font-size: 1.5em;
+    font-style: italic;
+    position: absolute;
+    bottom: -0.5em; right: 0; }}
+//=:heading-end
+
+//=:list styles
+ul.list-check {
+  padding: 20px;
+  background: url(images/check.png) no-repeat;
+  li {
+    background: url(images/right-squat-arrow.png) no-repeat;
+    padding-left: 15px;
+    margin-left: 20px; }}
+ul.list-img {
+  width: 80%;
+  background: $polished-pebbles;
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+  img {
+    width: 150px; height: 150px;
+    vertical-align: middle; }
+  li { 
+    display: inline-block;
+    border: 4px solid $dead-palette;
+    margin: 10px; }}
+//=:list styles-end
 
 #body-copy {
   background: $dead-palette;
+  color: grey;
+  line-height: 1.33;
   width: 700px;
   margin: auto; }
 
 //=:nav
 #body-copy { position: relative; }  
 #body-copy > nav {
-  background: $musimusi;
   position: absolute;
-  left: -150px;
+  left: -40px; top: -43px;
 
+  &, button.nav { 
+    font-family: sans-serif;
+    font-size: 12px; }
+ 
   //=:button
   ///=:common
   button.nav {
     padding: 18px 10px;
-    border: none;
+    background: rgba($holding-you, 0.5);
+    margin: 0px;
+    border: 4px solid $wasabi;
     @include border-radius(30px);  }
   ///=:specific
   &:hover {
-    width: 250px;
+    width: 400px;
     > button.nav {
-    @include border-radius(30px 30px 0 0); }}
+      border: 4px solid $wasabi;
+      @include border-radius(30px 30px 30px 0); }}
 
   //=:hide root and sub
   ul.pages { display: none; }
   ul.sections { display: none; }
 
-  li.page > a { 
-    background: green;
+  //=:shadow for button and links
+  button.nav, li.page > a, li.section > a {
+    @include box-shadow(lightgrey, 1px, 1px, 3px, 1px); }
+
+  ul.pages, ul.sections {
+     border-left: 4px solid $wasabi; }
+  li.page > a, li.section > a {
+    background: $polished-pebbles;
     display: inline-block;
-    width: 99px; }
+    color: black;
+    text-decoration: none;
+    margin: 5px 0;
+    padding: 5px;
+    @include border-radius(0 10px 10px 0);
+    &:hover { background: $wasabi; }}
+
+  li.page > a { 
+    display: inline-block;
+    width: 145px; margin-right: 5px;
+    &:hover {
+      width: 150px; margin-right: 0px; }}
   ul.sections {
-    background: gainsboro;
-    width: 99px; }
+    width: 150px; }
 
   //=:display root
   button.nav:hover {
@@ -60,10 +171,21 @@ body > header {
 
   .inline-sub-menu {
       display: inline-block;
-      margin: -42% 0 -42% -4px;
+      margin: -95% 0 -95% -4px;
       vertical-align: middle; }
   li.page > a {
     &:hover + ul.sections {
       @extend .inline-sub-menu; }}
   ul.sections:hover { @extend .inline-sub-menu; } }
 //=:nav-end
+
+
+//=:footer
+footer {
+  padding: 20px;
+  margin: 40px auto;
+  border: 4px solid $dead-palette;
+  width: 800px;
+  font-weight: bold;
+  text-align: center; }
+//=:footer-end
