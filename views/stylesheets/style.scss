@@ -1,191 +1,173 @@
 @import "compass/css3";
 @import "reset";
 
-//=:colors
-//wasabi suicide
-$musimusi: #FF4242;
-$dead-palette: #F4FAD2;
-$wasabi: #D4EE5E;
-$polished-pebbles: #E1EDB9;
-$holding-you: #F0F2EB;
-//=:colors-end
+//coffee night
+$d: #361E12;
+$m: #4C2D18;
+$l: #876D3A;
+$grey: #9D957E;
+//coffee night end
 
-body > header > ul.images { display: none; }
+$w: 960px;
+@include font-face("Xerography", font-files("/fonts/xerography.ttf", truetype));
+@include font-face("Gunplay3D", font-files("/fonts/gunplay3D.ttf", truetype));
 
-//=:general
-body {  }
-ul { list-style: none; }
-ol { margin-left: 20px; }
-p { margin: 10px 0; }
-h1 {
-  font-weight: bold;
-  font-size: 1.5em;
-  border-bottom: 4px solid $musimusi;
-  margin: 20px 0; }
-h2 {
-  font-weight: bold;
-  font-size: 1.2em;
-  border-bottom: 2px solid $wasabi;
-  margin: 10px 0; }
-strong > q {
-  color: $musimusi;
-  font-style: italic;
-  font-weight: bold;
-  display: block;
-  padding: 20px 20px 20px 40px ;
-  margin: 20px 0;
-  background: url(images/quote.png) no-repeat; }
-img { width: 200px; height: 200px; }
-figure {
-  background: $polished-pebbles;
-  padding: 10px;
-  text-align: center;
-  figcaption {
-    background: $dead-palette;
-    padding: 5px;
-    margin-bottom: 10px; }
-  img {border: 4px solid $dead-palette; }}
-img.independent {
-  display: block;
-  border: 4px solid $polished-pebbles;
-  margin: 10px auto; }
-//=:general-end
+.bevel {
+  @include box-shadow($d, 3px, 3px, 0, 0); }
+.grad {
+  @extend .bevel;
+  @include radial-gradient(color-stops(white, $d), 30% 10%); }
+.grad-light {
+  @extend .bevel;
+  @include radial-gradient(color-stops(white, $l), 30% 10%); }
 
 
-//=:paddings
-#body-copy, body > header {
-  padding: 20px; }
-
-//=:heading
-body > header {
-  position: relative;
-  width: 400px;
-  margin: 40px 40px 60px auto;
-  span.pitch { color: $polished-pebbles; }
-  h1 { //undoing general styles
-    border: none;
-    margin: 0; }
-  h1 { 
-    font-size: 2em;
-    background: url(images/logo.png) no-repeat;
-    padding: 10px 0 10px 50px; }
-  span.phone-number {
-    font-weight: bold;
-    font-size: 1.25em;
-    padding: 17px 0 0 50px; 
-    background: url(images/phone.png) no-repeat; }
-  span.pitch {
-    font-size: 1.5em;
-    font-style: italic;
-    position: absolute;
-    bottom: -0.5em; right: 0; }}
-//=:heading-end
-
-//=:list styles
 ul.list-check {
-  padding: 20px;
-  background: url(images/check.png) no-repeat;
   li {
-    background: url(images/right-squat-arrow.png) no-repeat;
-    padding-left: 15px;
-    margin-left: 20px; }}
+    padding-left: 30px;
+    background: url(/images/screw-head.png) no-repeat; } }
+
 ul.list-img {
-  width: 80%;
-  background: $polished-pebbles;
-  margin: 20px auto;
-  padding: 10px 0;
-  text-align: center;
-  img {
-    width: 150px; height: 150px;
-    vertical-align: middle; }
-  li { 
-    display: inline-block;
-    border: 4px solid $dead-palette;
-    margin: 10px; }}
-//=:list styles-end
-
-#body-copy {
-  background: $dead-palette;
-  color: grey;
-  line-height: 1.33;
-  width: 700px;
-  margin: auto; }
-
-//=:nav
-#body-copy { position: relative; }  
-#body-copy > nav {
-  position: absolute;
-  left: -40px; top: -43px;
-
-  &, button.nav { 
-    font-family: sans-serif;
-    font-size: 12px; }
- 
-  //=:button
-  ///=:common
-  button.nav {
-    padding: 18px 10px;
-    background: rgba($holding-you, 0.5);
-    margin: 0px;
-    border: 4px solid $wasabi;
-    @include border-radius(30px);  }
-  ///=:specific
-  &:hover {
-    width: 400px;
-    > button.nav {
-      border: 4px solid $wasabi;
-      @include border-radius(30px 30px 30px 0); }}
-
-  //=:hide root and sub
-  ul.pages { display: none; }
-  ul.sections { display: none; }
-
-  //=:shadow for button and links
-  button.nav, li.page > a, li.section > a {
-    @include box-shadow(lightgrey, 1px, 1px, 3px, 1px); }
-
-  ul.pages, ul.sections {
-     border-left: 4px solid $wasabi; }
-  li.page > a, li.section > a {
-    background: $polished-pebbles;
-    display: inline-block;
-    color: black;
-    text-decoration: none;
-    margin: 5px 0;
+  display: table;
+  margin: auto;
+  li {
+    float: left;
+    border: 5px solid transparent;
+    img {
+      background: $l;
+      padding: 10px;
+      width: 200px; height: 200px;}}}
+section#one { min-height: 350px; }
+img.independent {
+  float: left;
+  margin-right: 20px; }
+figure {
+  background: $l;
+  padding: 10px;
+  width: 201px;
+  margin: auto;
+  figcaption {
+    background: $m;
+    color: $d;
     padding: 5px;
-    @include border-radius(0 10px 10px 0);
-    &:hover { background: $wasabi; }}
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px; }
+  img { width: 200px; height: 200px; }}
 
-  li.page > a { 
-    display: inline-block;
-    width: 145px; margin-right: 5px;
-    &:hover {
-      width: 150px; margin-right: 0px; }}
-  ul.sections {
-    width: 150px; }
-
-  //=:display root
-  button.nav:hover {
-    + ul.pages { display: block; }}
-  ul.pages:hover { display: block; }
-
-  .inline-sub-menu {
-      display: inline-block;
-      margin: -95% 0 -95% -4px;
-      vertical-align: middle; }
-  li.page > a {
-    &:hover + ul.sections {
-      @extend .inline-sub-menu; }}
-  ul.sections:hover { @extend .inline-sub-menu; } }
-//=:nav-end
+ol {
+  width: 80%;
+  margin: 20px auto; }
 
 
-//=:footer
-footer {
-  padding: 20px;
+//general
+a {
+  text-decoration: none;
+  font-family: sans-serif;
+  color: black; }
+ul { list-style: none; }
+h1,h2 { 
+  font-family: sans-serif;
+  padding: 0.3em 0.3em 0.3em 10px;
+  margin: 20px 0 20px -20px;
+  @include border-radius(0 20px 20px 0); }
+h1 { 
+  background: $l;
+  font-size: 2em; }
+h2 {
+  background: $grey;
+  font-size: 1.25em; }
+p {
+  margin: 20px 0; }
+body > header, body > footer {
+  width: $w;
+  margin: auto; }
+#body-copy {
+  background: white;
+  width: 80 / 100 * $w;
   margin: 40px auto;
-  border: 4px solid $dead-palette;
-  width: 800px;
-  font-weight: bold;
+  padding: 20px;
+  line-height: 1.33;
+  @include border-radius(0 20px 0 20px);
+  > nav { text-shadow: 1px 1px 0 white; } }
+//general end
+
+body { 
+  background: url("/images/wood-pattern.png"); }
+
+#body-copy > nav {
+  position: fixed;
+  top: 0; left: 50%;
+  margin-left: - $w / 2;
+
+  ul.sub {
+    position: absolute;
+    display: none;
+    &:hover {
+      display: block; }}
+  ul.sub li.sub a {
+    height: auto;
+    @include border-radius(10px);
+    margin-top: 5px; }
+  li.main {
+    float: left;
+    a {
+      @extend .grad;
+      font-size: 10px;
+      text-align: center;
+      padding: 5px 0;
+      display: inline-block;
+      $home-w: 40px;
+      &[href $="home"] {
+        text-indent: -9999px;
+        width: $home-w; height: $home-w;
+        padding: 0;
+        background: $l url("/images/home.png");
+        vertical-align: top; }
+      width: (960px - $home-w) / 10;
+      height: 2em;
+      @include border-radius(0 0 10px 10px);
+      &:hover {
+        @extend .grad-light;
+        + ul.sub {
+          display: block; }}}}}
+
+body > header {
+  @extend .bevel;
+  @include linear-gradient(color-stops($m, white), top, image-url("/images/sun.png"));
+  @include border-radius(0 20px);
+  margin-top: 5em;
+  height: 200px;
+  position: relative;
+  h1, span.phone-number, span.pitch { position: absolute; }
+  h1 {
+    background: url("/images/cityscape.png");
+    border: none;
+    left: 0; bottom: 0;
+    font-family: "Gunplay3D";
+    color: $l;
+    font-size: 3em;
+    font-weight: 100;
+    text-shadow: none;
+    margin: 0 0 0 20px;
+    padding: 95px 18px 0; }
+  span.phone-number {
+    right: 0; bottom: -10px;
+    color: $m;
+    font-size: 3.5em;    
+    font-family: "Xerography";
+    font-weight: bold; }
+  span.pitch {
+    right: 5px; bottom: 50px;
+    font-weight: bold;
+    font-style: italic;
+    color: $l;
+    font-size: 2em;
+    text-shadow: $d 1px 1px 2px; }}
+
+body > footer {
+  @include border-radius(10px);
+  @extend .grad;
+  padding: 20px 0;
+  margin-bottom: 40px; 
   text-align: center; }
-//=:footer-end

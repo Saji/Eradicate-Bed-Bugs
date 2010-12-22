@@ -1,21 +1,19 @@
 !!! 5
 %html
   %head
+    %meta{:name => :description, :content => "Kill Bed Bugs, Eradicate Bed Bugs. 24 x 7x 365 = no bed bugs! , Our teams of experts have earned their license after undergoing rigorous training in pest elimination, pest extermination, bed bug extermination. We incorporated in New York, Queens, Long Island, Manhattan, and Brooklyn. We provide non toxic treatment and Cryonite services as well. We cater to all extermination needs for bed bugs in New York, bed bugs in Queens, bed bugs in Long Island, bed bugs in Manhattan. Also we offer services for gophers, hornets, centipedes, pantry moths and cloth moths. We provide certified Bed Bug Dog that generates quicker and more accurate results in finding and killing bed bugs."}
     %title
-      Bed Bugs, Bed bug Dog, Extermination | Eradicate Bed Bugs
-    %link{:rel => :stylesheet, :type => 'text/css', :href => './style.css'}
-    %script{:src => './js/jquery.js'}
-    %script{:src => './js/jquery-cycle.js'} 
-    %script{:src => './js/script.js'}
-    %script{:src => './js/analytics.js'}
+      = @title + "| Eradicate Bed Bugs | EradicateBedBugs.com"
+    /[if lt IE 9]
+      %script{:src => 'http://html5shiv.googlecode.com/svn/trunk/html5.js'}
+    %link{:rel => :stylesheet, :type => 'text/css', :href => '/style.css'}
+    %script{:src => '/js/jquery.js'}
+    %script{:src => '/js/jquery-cycle.js'} 
+    %script{:src => '/js/script.js'}
   %body
     %header
       %hgroup
         %h1 Eradicate Bed Bugs
-      -# %ul.images
-      -#   - (1..3).each do |i|
-      -#     %li
-      -#       %img{:src => "./images/nature/#{i}.jpg"}
       %p.contact
         %span.phone-number
           347 824 2066
@@ -23,16 +21,15 @@
           Let's Debug..
     #body-copy
       %nav
-        %button.nav Links
-        %ul.pages
+        %ul.main
           - (nav).each do |page, sections|
-            %li.page
+            %li.main
               //make helper for this and name it properly.
-              %a{ :href => downcase_spacedash(page) } #{page}
-              %ul.sections
+              %a{ :href => "/#{downcase_spacedash(page)}" } #{page}
+              %ul.sub
                 - sections.each do |section|
-                  %li.section
-                    %a{:href => "#{downcase_spacedash(page)}\##{section}"} #{section.split('-').map { |x| x.capitalize }.join(' ')}
+                  %li.sub
+                    %a{:href => "/#{downcase_spacedash(page)}/#{section}"} #{section.split('-').map { |x| x.capitalize }.join(' ')}
       %section.content
         %header
           // visual
@@ -40,3 +37,4 @@
           = yield
     %footer
       Eradicate Bed Bugs | EradicateBedBugs.com
+    %script{:src => '/js/analytics.js'}
