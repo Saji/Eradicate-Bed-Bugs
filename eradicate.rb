@@ -20,7 +20,7 @@ helpers do
       "Home" => [],
       "About Us" => [],
       "All Services" => [ "ants", "cockroach", "flies", "honeybee", "mice",
-                         "mosquito", "non-toxic-treatment", "other-pest-control",
+                         "mosquito", "non-toxic-treatment", "rodents",
                          "rats", "spiders", "squirrels", "termites" ],
       "Bed Bugs" => ["bed-bugs-pictures", "bed-bugs-rash", "bed-bugs-treatment",
                      "bed-mites", "chiggers", "fleas", "getting-rid-of-bed-bugs", "kill-bed-bugs"],
@@ -55,4 +55,7 @@ get '/:name' do |name|
   haml :"#{name}"
 end
 
+get '/*/:name' do |main, sub|
+  haml :"#{sub}"
+end
 
